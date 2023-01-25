@@ -1,0 +1,67 @@
+name:                cleo
+version:             0.1.0.0
+github:              "mikhail-ram/cleo"
+license:             BSD3
+author:              "Mikhail Ethan Ram"
+maintainer:          "mikhailethanram@gmail.com"
+copyright:           "Copyright (c) 2022 Mikhail Ethan Ram"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/mikhail-ram/cleo#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- time
+- random
+- process
+# For Weather JSON parsing
+- text
+- wreq ^>= 0.5.3.3
+- lens
+- aeson
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: src
+
+executables:
+  cleo-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - cleo
+
+tests:
+  cleo-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - cleo

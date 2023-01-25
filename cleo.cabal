@@ -1,0 +1,86 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           cleo
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/mikhail-ram/cleo#readme>
+homepage:       https://github.com/mikhail-ram/cleo#readme
+bug-reports:    https://github.com/mikhail-ram/cleo/issues
+author:         Mikhail Ethan Ram
+maintainer:     mikhailethanram@gmail.com
+copyright:      Copyright (c) 2022 Mikhail Ethan Ram
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/mikhail-ram/cleo
+
+library
+  exposed-modules:
+      Functions.Joke
+      Functions.Time
+      Functions.Utility
+      Functions.Weather
+      Lib
+  other-modules:
+      Paths_cleo
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , lens
+    , process
+    , random
+    , text
+    , time
+    , wreq >=0.5.3.3 && <0.6
+  default-language: Haskell2010
+
+executable cleo-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_cleo
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , cleo
+    , lens
+    , process
+    , random
+    , text
+    , time
+    , wreq >=0.5.3.3 && <0.6
+  default-language: Haskell2010
+
+test-suite cleo-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_cleo
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , cleo
+    , lens
+    , process
+    , random
+    , text
+    , time
+    , wreq >=0.5.3.3 && <0.6
+  default-language: Haskell2010
