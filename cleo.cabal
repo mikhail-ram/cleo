@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       Functions.Joke
+      Functions.LLM
       Functions.Time
       Functions.Utility
       Functions.Weather

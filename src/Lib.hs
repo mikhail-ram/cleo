@@ -1,3 +1,4 @@
+-- TODO: Add jokes API
 module Lib
   ( repl
   ) where
@@ -14,6 +15,7 @@ import Functions.Time
 import Functions.Weather
 import Functions.Utility
 import Functions.Joke
+import Functions.LLM
 
 prompt :: String
 prompt = ">> "
@@ -65,30 +67,6 @@ matchResponse input
   | "joke" `elem` tokens = joke
   | otherwise = putStrLn "Sorry, I don't understand."
   where tokens = preprocess input
-
-{-
-eval' input = do
-  output <- try . callCommand $ input :: IO (Either IOException ())
-  case output of
-    Right success -> putStrLn "Success"
-    Left e
-      | "time" `elem` tokens -> time
-      | "weather" `elem` tokens -> weather
-      | otherwise -> putStrLn "Sorry, I don't understand."
-      where tokens = preprocess input
--}
-{-
-eval' input
-  | "time" `elem` tokens = time
-  | "weather" `elem` tokens = weather
-  | otherwise = do
-      output <- try . callCommand $ input :: IO (Either SomeException ())
-      case output of
-        Left e -> putStrLn "Exception raised."
-        Right success -> return success
-  where
-    tokens = preprocess input
--}
 
 repl :: IO ()
 repl = do
